@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pressure Washing Cost Calculator | CostWise</title>
+  <meta name="description" content="Estimate pressure washing costs for house, driveway, patio, and sidewalk. Free range based on size and condition—not a formal quote.">
+  <meta name="theme-color" content="#0d9488">
+  <link rel="canonical" href="https://costwise.example/calculators/pressure-washing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pressure Washing Cost Calculator | CostWise">
+  <meta property="og:description" content="Get a realistic price range for residential pressure washing in under a minute.">
+  <meta property="og:url" content="https://costwise.example/calculators/pressure-washing.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Cost<span>Wise</span></a>
+      <nav class="nav-desktop" aria-label="Main">
+        <a href="../index.html#calculators">Calculators</a>
+        <a href="../index.html#how-it-works">How It Works</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" aria-label="Mobile">
+      <a href="../index.html#calculators">Calculators</a>
+      <a href="../index.html#how-it-works">How It Works</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container" style="padding-top:1.5rem;">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../index.html#calculators">Calculators</a> / Pressure Washing
+      </nav>
+      <h1 style="font-size:1.75rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.35rem;">Pressure Washing Cost Calculator</h1>
+      <p style="color:var(--color-text-muted);max-width:40rem;margin-bottom:0.5rem;">
+        Select the surfaces you need cleaned, enter approximate square footage, and get a realistic estimated price range.
+        Instant updates as you change inputs.
+      </p>
+    </div>
+
+    <div class="container calc-layout">
+      <div class="calc-form-card">
+        <h2>Project details</h2>
+        <form id="pw-form" novalidate>
+          <div class="form-group">
+            <label>Surfaces to clean</label>
+            <div class="checkbox-group" role="group" aria-label="Surfaces">
+              <label class="checkbox-item">
+                <input type="checkbox" id="svc-house" name="svc-house">
+                <span>
+                  <span class="cb-label">House washing (exterior / soft wash)</span>
+                  <span class="cb-desc">Siding, trim, and typical facade area</span>
+                </span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" id="svc-driveway" name="svc-driveway">
+                <span>
+                  <span class="cb-label">Driveway cleaning</span>
+                  <span class="cb-desc">Concrete or paved driveway</span>
+                </span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" id="svc-patio" name="svc-patio">
+                <span>
+                  <span class="cb-label">Patio cleaning</span>
+                  <span class="cb-desc">Patio, deck surface, or similar flat area</span>
+                </span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" id="svc-sidewalk" name="svc-sidewalk">
+                <span>
+                  <span class="cb-label">Sidewalk cleaning</span>
+                  <span class="cb-desc">Walkways and sidewalks</span>
+                </span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" id="svc-additional" name="svc-additional">
+                <span>
+                  <span class="cb-label">Additional square footage</span>
+                  <span class="cb-desc">Fence, garage exterior, or other flatwork</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="sqft-fields" id="field-house">
+            <div class="form-group" style="margin:0;">
+              <label for="sqft-house">House exterior area (sq ft)</label>
+              <input type="number" id="sqft-house" min="0" step="50" inputmode="numeric" placeholder="e.g. 1800">
+              <p class="form-hint">Approximate washable wall area, not total home living space.</p>
+            </div>
+          </div>
+          <div class="sqft-fields hidden" id="field-driveway">
+            <div class="form-group" style="margin:0;">
+              <label for="sqft-driveway">Driveway (sq ft)</label>
+              <input type="number" id="sqft-driveway" min="0" step="25" inputmode="numeric" placeholder="e.g. 500">
+              <p class="form-hint">Typical two-car driveway is often 400–700 sq ft.</p>
+            </div>
+          </div>
+          <div class="sqft-fields hidden" id="field-patio">
+            <div class="form-group" style="margin:0;">
+              <label for="sqft-patio">Patio / deck area (sq ft)</label>
+              <input type="number" id="sqft-patio" min="0" step="25" inputmode="numeric" placeholder="e.g. 300">
+            </div>
+          </div>
+          <div class="sqft-fields hidden" id="field-sidewalk">
+            <div class="form-group" style="margin:0;">
+              <label for="sqft-sidewalk">Sidewalk / walkway (sq ft)</label>
+              <input type="number" id="sqft-sidewalk" min="0" step="25" inputmode="numeric" placeholder="e.g. 150">
+            </div>
+          </div>
+          <div class="sqft-fields hidden" id="field-additional">
+            <div class="form-group" style="margin:0;">
+              <label for="sqft-additional">Additional area (sq ft)</label>
+              <input type="number" id="sqft-additional" min="0" step="25" inputmode="numeric" placeholder="e.g. 200">
+            </div>
+          </div>
+
+          <div class="form-row two" style="margin-top:1.25rem;">
+            <div class="form-group">
+              <label for="condition">Property condition</label>
+              <select id="condition" name="condition">
+                <option value="excellent">Excellent – recently cleaned</option>
+                <option value="good" selected>Good – normal dirt &amp; pollen</option>
+                <option value="fair">Fair – visible buildup / mild stains</option>
+                <option value="poor">Poor – heavy stains or long neglect</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="region">Location (optional)</label>
+              <select id="region" name="region">
+                <option value="">Not specified</option>
+                <option value="low">Lower-cost area</option>
+                <option value="average">Average U.S. market</option>
+                <option value="high">Higher-cost metro</option>
+              </select>
+              <p class="form-hint">Coarse adjustment only—local quotes still vary widely.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <aside class="calc-results-panel" aria-live="polite" aria-atomic="true">
+        <h2>Your estimate</h2>
+        <div id="pw-results">
+          <div class="empty-state">
+            <p>Select at least one surface and enter square footage to see an estimated price range.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="../index.html">Cost<span>Wise</span></a>
+          <p>Know what it should cost before you pay.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="../about.html">About</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../index.html#calculators">Calculators</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+          <a href="../disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CostWise. All rights reserved.</span>
+        <span>Estimates are for planning only.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/pressure-washing.js"></script>
+</body>
+</html>
